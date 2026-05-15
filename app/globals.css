@@ -1,26 +1,216 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Aged paper / cream backgrounds — warmer, richer */
+  --background: #f3e6c8;
+  --surface: #ecdcb3;
+  --surface-2: #dec99a;
+  --paper: #fbf3df;
+  --paper-deep: #efe1be;
+
+  /* Deep clay / cocoa for dramatic sections */
+  --clay-dark: #3a1f0c;
+  --clay-darker: #21110a;
+  --clay-mid: #6b3a1e;
+
+  /* Foreground / text */
+  --foreground: #2a1607;
+  --foreground-muted: #5a3f24;
+  --foreground-subtle: #836547;
+
+  /* Brand accents — antique gold, copper, terracotta */
+  --gold: #a87431;
+  --gold-deep: #7a4f1c;
+  --gold-soft: #d6b27a;
+  --gold-pale: #ead7a8;
+
+  --terracotta: #ad4826;
+  --terracotta-deep: #7d2f17;
+  --copper: #b06535;
+  --clay: #c7825c;
+
+  --bronze: #7a5a2c;
+  --corn: #e3b658;
+  --corn-deep: #b8862f;
+
+  /* Borders */
+  --line: rgba(58, 30, 8, 0.16);
+  --line-soft: rgba(58, 30, 8, 0.08);
+  --line-strong: rgba(58, 30, 8, 0.32);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-muted: var(--foreground-muted);
+  --color-subtle: var(--foreground-subtle);
+  --color-clay-dark: var(--clay-dark);
+  --color-clay-darker: var(--clay-darker);
+  --color-clay-mid: var(--clay-mid);
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --color-gold-soft: var(--gold-soft);
+  --color-gold-pale: var(--gold-pale);
+  --color-terracotta: var(--terracotta);
+  --color-terracotta-deep: var(--terracotta-deep);
+  --color-copper: var(--copper);
+  --color-clay: var(--clay);
+  --color-bronze: var(--bronze);
+  --color-corn: var(--corn);
+  --color-corn-deep: var(--corn-deep);
+  --color-line: var(--line);
+  --color-line-soft: var(--line-soft);
+  --color-line-strong: var(--line-strong);
+
+  --font-serif: var(--font-playfair), "Cormorant Garamond", "Times New Roman", serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-cormorant), "Playfair Display", serif;
+  --font-script: var(--font-italianno), "Cormorant Garamond", cursive;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  font-feature-settings: "kern", "liga", "calt";
+  letter-spacing: -0.005em;
+}
+
+/* ─── Texture layers ──────────────────────────────────────────────── */
+
+/* Aged paper grain — primary atmosphere across the site */
+.bg-aged-paper {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(rgba(120, 80, 40, 0.10) 1.1px, transparent 1.4px),
+    radial-gradient(rgba(180, 140, 80, 0.06) 1.5px, transparent 2px),
+    radial-gradient(ellipse 1200px 600px at 50% 0%, rgba(255, 230, 180, 0.30), transparent 60%),
+    radial-gradient(ellipse 800px 600px at 100% 100%, rgba(173, 72, 38, 0.06), transparent 65%);
+  background-size: 28px 28px, 44px 44px, 100% 100%, 100% 100%;
+  background-position: 0 0, 12px 18px, 0 0, 0 0;
+}
+
+/* Linen / cloth weave — subtle structure */
+.bg-linen {
+  background-color: var(--surface);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(120, 80, 40, 0.05) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(90deg, rgba(120, 80, 40, 0.04) 0 1px, transparent 1px 4px),
+    radial-gradient(ellipse 800px 400px at 50% 0%, rgba(255, 230, 180, 0.25), transparent 70%);
+}
+
+/* Talavera — subtle decorative tile dots & geometric net */
+.bg-talavera {
+  background-color: var(--surface);
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(168, 116, 49, 0.18) 1.4px, transparent 2px),
+    radial-gradient(circle at 0 0, rgba(173, 72, 38, 0.10) 1.2px, transparent 2px),
+    radial-gradient(circle at 100% 100%, rgba(173, 72, 38, 0.10) 1.2px, transparent 2px),
+    repeating-linear-gradient(45deg, transparent 0 22px, rgba(120, 80, 40, 0.04) 22px 23px);
+  background-size: 36px 36px, 36px 36px, 36px 36px, 100% 100%;
+}
+
+/* Clay wash — deep terracotta backdrop with warm light */
+.bg-clay-wash {
+  background:
+    radial-gradient(ellipse at top, rgba(238, 196, 130, 0.35), transparent 55%),
+    radial-gradient(ellipse at bottom right, rgba(173, 72, 38, 0.18), transparent 60%),
+    radial-gradient(ellipse at bottom left, rgba(122, 79, 28, 0.14), transparent 55%),
+    linear-gradient(180deg, #f6e6c1 0%, #e6c889 55%, #b88547 100%);
+}
+
+/* Dark clay / hearth backdrop for cinematic moments */
+.bg-hearth {
+  background:
+    radial-gradient(ellipse at center, rgba(255, 178, 80, 0.20), transparent 55%),
+    radial-gradient(ellipse at top, rgba(255, 200, 130, 0.10), transparent 60%),
+    linear-gradient(180deg, var(--clay-dark) 0%, var(--clay-darker) 100%);
+}
+
+/* Subtle dot grain overlay */
+.bg-grain {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(58, 30, 8, 0.06) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+/* Editorial vignette */
+.vignette::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, transparent 55%, rgba(34, 17, 6, 0.22) 100%);
+}
+
+/* ─── Editorial tokens ────────────────────────────────────────────── */
+
+.eyebrow {
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.42em;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--gold-deep);
+}
+
+.eyebrow-script {
+  font-family: var(--font-script);
+  font-size: 1.6rem;
+  letter-spacing: 0;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.smallcaps {
+  font-family: var(--font-display);
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  font-weight: 500;
+}
+
+.drop-cap::first-letter {
+  font-family: var(--font-display);
+  font-size: 4.2em;
+  float: left;
+  line-height: 0.92;
+  padding: 0.1em 0.12em 0 0;
+  color: var(--gold-deep);
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Hairline gold rule with center ornament — used as section ornament */
+.rule-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* Ink stamp seal: subtle rotation + worn edge feel */
+.ink-stamp {
+  filter: contrast(1.05);
+  mix-blend-mode: multiply;
+}
+
+/* Selection */
+::selection {
+  background: rgba(168, 116, 49, 0.30);
+  color: var(--foreground);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
