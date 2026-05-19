@@ -22,7 +22,7 @@ const pillars = [
     title: "La nixtamalización",
     en: "The nixtamal ritual",
     body:
-      "Slow-cooked overnight with cal and spring water in clay ollas. By morning the kernels surrender their husks, and the kitchen smells of warm earth — that is how you know it is ready.",
+      "Slow-cooked overnight with cal and spring water in clay ollas. The hydrated lime softens the kernel and gently keeps the masa — the only preservative our recipes have ever needed.",
   },
   {
     n: "III",
@@ -66,11 +66,11 @@ export function Heritage() {
               transition={{ duration: 1, ease, delay: 0.1 }}
               className="mt-8 font-serif text-[2.4rem] md:text-[3.6rem] leading-[1.02] tracking-[-0.018em]"
             >
-              From a wooden cart
+              From a horse-drawn carreta
               <br />
               to{" "}
               <span className="font-display italic font-light text-gold-deep">
-                tu mesa.
+                generaciones de tradición.
               </span>
             </motion.h2>
           </div>
@@ -83,20 +83,26 @@ export function Heritage() {
             className="lg:col-span-6 lg:col-start-7"
           >
             <p className="drop-cap font-display text-[1.2rem] md:text-[1.32rem] italic leading-[1.7] text-muted">
-              In 1978, doña Elena Vargas began selling fresh masa from a small
-              wooden cart outside the mercado in Tlaquepaque, Jalisco. Forty-seven
-              years later, her grandchildren still grind corn before sunrise —
-              same comal, same hands, same patience.
+              Known throughout the community as{" "}
+              <span className="text-foreground">La Carreta Tortilleria</span>,
+              the family began in 1939 making tortillas in a small garage,
+              placing them into a galvanized tub, and carrying them through the
+              neighborhood on a horse-drawn carreta until every last one was
+              sold. That same commitment to freshness, simplicity, and honest
+              ingredients still guides everything La Carreta Mexican Food makes
+              today.
             </p>
             <p className="mt-7 text-[1.02rem] leading-relaxed text-muted">
-              La Carreta exists to carry that quiet ceremony of Mexican cooking
-              into kitchens far from home — without shortcuts, without
-              softening the soul of what we make.
+              Using original family recipes, La Carreta continues to make corn
+              tortillas, hand-stretched flour tortillas, handmade tamales, and
+              masa prepared with the care of a traditional Mexican kitchen —
+              with simple ingredients, traditional methods, and no artificial
+              preservatives.
             </p>
             <div className="mt-8 flex items-center gap-3">
               <StarMark className="w-3 h-3" tone="#a87431" />
               <span className="font-display italic text-foreground">
-                — La familia Vargas
+                — Family legacy continued by Carmen Cervantes &amp; Beatriz Cervantes Guillén
               </span>
             </div>
           </motion.div>

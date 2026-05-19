@@ -38,9 +38,34 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "La Carreta — Casa Artesanal de Tradición Mexicana",
+  title:
+    "La Carreta Mexican Food | La Carreta Tortilleria — Authentic Handmade Tortillas Since 1939",
   description:
-    "Tortillas, tamales y masa hechos a mano. A premium Mexican artisan food house honoring four generations of tradition for grocers, retailers and restaurants.",
+    "La Carreta Mexican Food — known locally as La Carreta Tortilleria — has crafted authentic Mexican tortillas, hand-stretched flour tortillas, handmade tamales, and fresh masa from original family recipes since 1939. Made with simple ingredients and no artificial preservatives.",
+  keywords: [
+    "La Carreta Mexican Food",
+    "La Carreta Tortilleria",
+    "authentic Mexican tortillas",
+    "handmade tortillas",
+    "hand-stretched flour tortillas",
+    "handmade tamales",
+    "fresh masa",
+    "masa for tamales",
+    "Mexican food products",
+    "Montclair tortilleria",
+    "no artificial preservatives",
+    "naturally prepared tortillas",
+    "preservative-free tortillas",
+    "traditional nixtamal",
+    "simple ingredients",
+    "Mexican spices and seasonings",
+  ],
+  openGraph: {
+    title: "La Carreta Mexican Food · La Carreta Tortilleria — Since 1939",
+    description:
+      "Original family recipes since 1939. Corn tortillas, hand-stretched flour tortillas, handmade tamales, masa, and Mexican spices — made with simple ingredients and no artificial preservatives.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

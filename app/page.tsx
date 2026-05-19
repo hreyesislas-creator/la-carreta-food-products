@@ -2,6 +2,7 @@ import { Navigation } from "./components/Navigation";
 import { Hero } from "./components/Hero";
 import { Heritage } from "./components/Heritage";
 import { Manifesto } from "./components/Manifesto";
+import { Ingredients } from "./components/Ingredients";
 import { Products } from "./components/Products";
 import { Wholesale } from "./components/Wholesale";
 import { Partners } from "./components/Partners";
@@ -16,6 +17,7 @@ export default function Home() {
         <Hero />
         <Heritage />
         <Manifesto />
+        <Ingredients />
         <Products />
         <Wholesale />
         <Partners />

@@ -78,7 +78,7 @@ export function Manifesto() {
         >
           <span className="h-px w-10 bg-gold-soft" />
           <span className="text-[0.7rem] uppercase tracking-[0.4em] text-gold-soft">
-            Doña Elena Vargas · Founder, 1978
+            Gilberto y Celia Cervantes · Founders, 1939
           </span>
           <span className="h-px w-10 bg-gold-soft" />
         </motion.div>
@@ -112,7 +112,7 @@ export function Manifesto() {
         >
           <StarMark className="w-3 h-3" tone="#d6b27a" />
           <span className="font-display italic text-base">
-            Una receta. Cinco generaciones.
+            Original family recipes. Handcrafted since 1939.
           </span>
           <StarMark className="w-3 h-3" tone="#d6b27a" />
         </motion.div>

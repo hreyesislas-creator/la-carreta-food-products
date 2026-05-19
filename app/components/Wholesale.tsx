@@ -147,9 +147,10 @@ export function Wholesale() {
               className="mt-8 max-w-xl font-display text-[1.15rem] italic text-muted leading-relaxed"
             >
               We partner with grocers, specialty retailers and restaurants that
-              share a commitment to authentic, well-made food. Our products
-              ship from the family kitchen with the same care given to every
-              tortilla.
+              share a commitment to authentic, well-made food. Offer your
+              customers traditional Mexican products made with simple
+              ingredients and no artificial preservatives — the same care given
+              to every tortilla, since 1939.
             </motion.p>
 
             <div className="mt-12 space-y-6">
@@ -189,9 +190,10 @@ export function Wholesale() {
                 {[
                   "SQF Certified",
                   "Non-GMO sourcing",
-                  "Family owned · 47 years",
+                  "No artificial preservatives",
+                  "Family owned · 85+ years",
                   "Weekly delivery",
-                  "Cinco generaciones",
+                  "Original recipes",
                 ].map((c) => (
                   <span key={c} className="flex items-center gap-3">
                     <span aria-hidden className="inline-block h-1.5 w-1.5 rotate-45 bg-gold" />

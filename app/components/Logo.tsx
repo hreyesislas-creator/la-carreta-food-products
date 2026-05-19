@@ -61,7 +61,7 @@ export function Logo({ className = "", tone = "dark" }: LogoProps) {
             className="text-[0.54rem] tracking-[0.5em] uppercase"
             style={{ color: muted }}
           >
-            Casa Artesanal
+            Mexican Food · Since 1939
           </span>
           <span
             className="h-px w-3"

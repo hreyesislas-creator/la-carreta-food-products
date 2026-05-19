@@ -33,7 +33,7 @@ export function Hero() {
       <div className="relative pt-32 md:pt-36 pb-2 flex justify-center">
         <div className="flex items-center gap-4 text-[0.62rem] uppercase tracking-[0.6em] text-gold-deep">
           <span className="h-px w-12 bg-gold/70" />
-          Casa Artesanal — Tradición desde 1978
+          Casa Artesanal — Tradición desde 1939
           <span className="h-px w-12 bg-gold/70" />
         </div>
       </div>
@@ -76,7 +76,7 @@ export function Hero() {
             >
               <span className="h-px w-10 bg-gold" />
               <span className="font-display italic text-base text-muted">
-                Cinco generaciones · Four generations of family hands
+                Tradición familiar · Handcrafted since 1939
               </span>
             </motion.div>
 
@@ -90,6 +90,16 @@ export function Hero() {
               Carreta keeps the slow rituals of the Mexican kitchen alive —
               made for the tables of grocers, restaurants, and families who
               know the difference.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease, delay: 0.45 }}
+              className="mt-4 max-w-xl italic text-[0.98rem] text-gold-deep"
+            >
+              Crafted with heirloom traditions, natural ingredients, and no
+              artificial preservatives.
             </motion.p>
 
             <motion.div
@@ -127,9 +137,9 @@ export function Hero() {
               className="mt-16 grid grid-cols-3 gap-x-6 gap-y-2 max-w-md"
             >
               {[
-                { k: "47", l: "Años de\ntradición" },
-                { k: "180+", l: "Tiendas y\nrestaurantes" },
-                { k: "1978", l: "Casa fundada\nen Jalisco" },
+                { k: "85+", l: "Años de\ntradición" },
+                { k: "1939", l: "Hecho a mano\ndesde" },
+                { k: "100%", l: "Recetas\noriginales" },
               ].map((s, i) => (
                 <div key={i} className="relative pl-4 border-l border-gold/50">
                   <div className="font-serif text-[2.1rem] leading-none text-foreground">
@@ -163,8 +173,9 @@ export function Hero() {
         >
           <Flourish className="w-72 h-6 text-gold-deep" tone="#a87431" />
           <p className="mt-4 font-display italic text-muted text-center">
-            <span className="text-foreground">Maíz nativo</span> · stone-ground ·{" "}
-            <span className="text-foreground">nixtamal nocturno</span> · pressed by hand
+            <span className="text-foreground">Maíz nativo</span> ·{" "}
+            <span className="text-foreground">nixtamal nocturno</span> ·{" "}
+            <span className="text-foreground">no artificial preservatives</span> · pressed by hand
           </p>
         </motion.div>
       </div>
@@ -226,7 +237,7 @@ function StillLife() {
           <div className="flex items-center gap-3 px-3 py-1.5 bg-[rgba(251,243,223,0.92)] backdrop-blur-sm">
             <span className="h-px w-6 bg-[#7a4f1c]" />
             <span className="font-serif italic text-[0.85rem] text-[#3a1f0c]">
-              La Cocina de Doña Elena
+              La Cocina de la Familia Cervantes
             </span>
             <span className="h-px w-6 bg-[#7a4f1c]" />
           </div>
@@ -243,7 +254,7 @@ function StillLife() {
           <div className="flex items-center gap-3 px-4 py-2 bg-[rgba(251,243,223,0.95)] backdrop-blur-sm">
             <TileMotif className="w-3.5 h-3.5" tone="#7a4f1c" />
             <span className="font-display italic text-[0.95rem] text-[#3a1f0c]">
-              Tortillas hechas a mano — Jalisco · 1978
+              Tortillas hechas a mano · Desde 1939
             </span>
             <TileMotif className="w-3.5 h-3.5" tone="#7a4f1c" />
           </div>
@@ -258,7 +269,7 @@ function StillLife() {
         className="absolute -left-3 top-1/3 hidden md:block"
       >
         <div className="rounded-full bg-paper/90 backdrop-blur border border-line px-4 py-2 text-[0.62rem] uppercase tracking-[0.32em] text-foreground shadow-[0_8px_20px_rgba(40,18,6,0.18)]">
-          Nixtamal nocturno
+          Sin conservadores
         </div>
       </motion.div>
 

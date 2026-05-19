@@ -39,23 +39,29 @@ export function Footer() {
           <div className="md:col-span-5">
             <Logo tone="light" />
             <p className="mt-7 max-w-sm font-display text-[1.15rem] leading-relaxed text-gold-soft italic">
-              &ldquo;A wooden cart, a clay comal, and recipes passed down
-              through four generations of family hands.&rdquo;
+              &ldquo;A horse-drawn carreta, a galvanized tub of fresh tortillas,
+              and original family recipes still made the way they were in
+              1939.&rdquo;
             </p>
             <div className="mt-7 flex items-center gap-3 text-[0.62rem] uppercase tracking-[0.4em] text-gold-soft">
               <span className="inline-block h-px w-10 bg-gold-soft/70" />
               Hecho en México · Crafted in California
               <span className="inline-block h-px w-10 bg-gold-soft/70" />
             </div>
+            <div className="mt-3 flex items-center gap-3 text-[0.6rem] uppercase tracking-[0.36em] text-gold-soft/85">
+              <span aria-hidden className="inline-block h-1.5 w-1.5 rotate-45 bg-gold-soft/70" />
+              Simple ingredients · No artificial preservatives
+              <span aria-hidden className="inline-block h-1.5 w-1.5 rotate-45 bg-gold-soft/70" />
+            </div>
 
             <div className="mt-8 flex items-center gap-4">
               <MexicoSeal className="w-20 h-20 opacity-90" tone="#d6b27a" />
               <div>
                 <div className="font-display italic text-base text-paper">
-                  Casa Vargas
+                  Familia Cervantes
                 </div>
                 <div className="text-[0.62rem] uppercase tracking-[0.36em] text-gold-soft mt-1">
-                  Tradición desde 1978
+                  Tradición desde 1939
                 </div>
               </div>
             </div>
@@ -89,8 +95,11 @@ export function Footer() {
           <div className="md:col-span-4">
             <h4 className="eyebrow text-gold-soft">La Casa</h4>
             <address className="not-italic mt-5 space-y-2 text-[0.98rem] text-paper/80 leading-relaxed">
-              <p>La Carreta Food Products</p>
-              <p>4218 Mission Boulevard</p>
+              <p>La Carreta Mexican Food</p>
+              <p className="font-display italic text-[0.85rem] text-gold-soft/85">
+                Traditionally known as La Carreta Tortilleria
+              </p>
+              <p className="pt-2">4218 Mission Boulevard</p>
               <p>Montclair, California 91763</p>
               <p className="pt-3">
                 <a
@@ -118,7 +127,7 @@ export function Footer() {
         </div>
 
         <div className="mt-20 pt-8 border-t border-gold-soft/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[0.62rem] uppercase tracking-[0.34em] text-gold-soft">
-          <p>© {new Date().getFullYear()} La Carreta Food Products · All rights reserved</p>
+          <p>© {new Date().getFullYear()} La Carreta Mexican Food · All rights reserved</p>
           <p className="flex items-center gap-4">
             <Link href="#" className="hover:text-paper transition-colors">Privacy</Link>
             <span aria-hidden>·</span>

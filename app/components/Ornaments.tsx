@@ -329,7 +329,7 @@ export function MexicoSeal({ className = "", tone = DEFAULT_TONE }: Common) {
         letterSpacing="3"
         fill={tone}
       >
-        EST · 1978
+        EST · 1939
       </text>
     </svg>
   );

@@ -61,8 +61,10 @@ export function PartnerCTA() {
               className="mt-8 max-w-xl font-display text-[1.2rem] italic text-muted leading-relaxed"
             >
               We are selective about who carries our products — and we hope
-              your store is a good fit. Reach out for samples, sell sheets,
-              and the conversation that begins every lasting partnership.
+              your store is a good fit. Offer your customers authentic Mexican
+              food made with simple ingredients and no artificial preservatives.
+              Reach out for samples, sell sheets, and the conversation that
+              begins every lasting partnership.
             </motion.p>
 
             <motion.div
@@ -78,10 +80,10 @@ export function PartnerCTA() {
                   Saludos cordiales,
                 </div>
                 <div className="font-serif text-[1.6rem] text-foreground -mt-1">
-                  la Familia Vargas
+                  la Familia Cervantes
                 </div>
                 <div className="text-[0.65rem] uppercase tracking-[0.36em] text-subtle mt-1.5">
-                  Cinco generaciones · Since 1978
+                  Family legacy · Since 1939
                 </div>
               </div>
             </motion.div>
