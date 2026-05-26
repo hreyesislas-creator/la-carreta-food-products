@@ -38,7 +38,7 @@ export function Navigation() {
       <div className="mx-auto max-w-[88rem] px-6 lg:px-12">
         <div className="flex items-center justify-between py-5">
           <Link href="/" aria-label="La Carreta Mexican Food home" className="shrink-0">
-            <Logo />
+            <Logo preload />
           </Link>
 
           <nav className="hidden md:flex items-center gap-9">
