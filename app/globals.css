@@ -1,45 +1,67 @@
 @import "tailwindcss";
 
 :root {
-  /* Aged paper / cream backgrounds — warmer, richer */
-  --background: #f3e6c8;
-  --surface: #ecdcb3;
-  --surface-2: #dec99a;
-  --paper: #fbf3df;
-  --paper-deep: #efe1be;
+  --background: #ffffff;
+  --surface: #f8faf8;
+  --surface-2: #eef7ee;
+  --paper: #ffffff;
+  --paper-deep: #f7fbf7;
 
-  /* Deep clay / cocoa for dramatic sections */
-  --clay-dark: #3a1f0c;
-  --clay-darker: #21110a;
-  --clay-mid: #6b3a1e;
+  --clay-dark: #166534;
+  --clay-darker: #14532d;
+  --clay-mid: #15803d;
 
-  /* Foreground / text */
-  --foreground: #2a1607;
-  --foreground-muted: #5a3f24;
-  --foreground-subtle: #836547;
+  --foreground: #111827;
+  --foreground-muted: #4b5563;
+  --foreground-subtle: #6b7280;
 
-  /* Brand accents — antique gold, copper, terracotta */
-  --gold: #a87431;
-  --gold-deep: #7a4f1c;
-  --gold-soft: #d6b27a;
-  --gold-pale: #ead7a8;
+  --gold: #ca8a04;
+  --gold-deep: #b45309;
+  --gold-soft: #fef3c7;
+  --gold-pale: #fffbeb;
 
-  --terracotta: #ad4826;
-  --terracotta-deep: #7d2f17;
-  --copper: #b06535;
-  --clay: #c7825c;
+  --terracotta: #b91c1c;
+  --terracotta-deep: #991b1b;
+  --copper: #dc2626;
+  --clay: #ef4444;
 
-  --bronze: #7a5a2c;
-  --corn: #e3b658;
-  --corn-deep: #b8862f;
+  --bronze: #854d0e;
+  --corn: #facc15;
+  --corn-deep: #ca8a04;
 
-  /* Borders */
-  --line: rgba(58, 30, 8, 0.16);
-  --line-soft: rgba(58, 30, 8, 0.08);
-  --line-strong: rgba(58, 30, 8, 0.32);
+  --line: rgba(17, 24, 39, 0.14);
+  --line-soft: rgba(17, 24, 39, 0.08);
+  --line-strong: rgba(17, 24, 39, 0.22);
 }
 
 @theme inline {
+  /* ─── Brand color overrides ───────────────────────────────────────
+     Override Tailwind's built-in green + red scales to La Carreta's
+     premium CPG palette. All bg-green-*, text-red-*, border-green-*
+     classes across the site automatically use these values.
+  ─────────────────────────────────────────────────────────────────── */
+  --color-green-50:  #f0f7f3;
+  --color-green-100: #ddeee6;
+  --color-green-200: #bad9c7;
+  --color-green-300: #8abfa3;
+  --color-green-400: #5ba07e;
+  --color-green-500: #3a7f5d;
+  --color-green-600: #2a6b4a;
+  --color-green-700: #1f5f3b;   /* primary brand green */
+  --color-green-800: #1a4f32;
+  --color-green-900: #143f28;
+
+  --color-red-50:  #fdf3f3;
+  --color-red-100: #fce8e8;
+  --color-red-200: #f8c5c5;
+  --color-red-300: #f29999;
+  --color-red-400: #e96a6a;
+  --color-red-500: #d84040;
+  --color-red-600: #b52828;
+  --color-red-700: #9b1c1c;     /* primary brand red */
+  --color-red-800: #7f1d1d;
+  --color-red-900: #681818;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);
@@ -205,8 +227,22 @@ body {
 
 /* Selection */
 ::selection {
-  background: rgba(168, 116, 49, 0.30);
+  background: rgba(31, 95, 59, 0.18);  /* #1f5f3b brand green */
   color: var(--foreground);
+}
+
+/* ─── Brand ribbon marquee ────────────────────────────────────────── */
+@keyframes brand-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: brand-marquee 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee { animation: none; }
 }
 
 @media (prefers-reduced-motion: no-preference) {

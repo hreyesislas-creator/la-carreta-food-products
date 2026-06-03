@@ -1,12 +1,12 @@
 import { Navigation } from "./components/Navigation";
 import { Hero } from "./components/Hero";
-import { Heritage } from "./components/Heritage";
-import { Manifesto } from "./components/Manifesto";
-import { Ingredients } from "./components/Ingredients";
+import { BrandRibbon } from "./components/BrandRibbon";
 import { Products } from "./components/Products";
+import { Ingredients } from "./components/Ingredients";
+import { RetailerReasons } from "./components/RetailerReasons";
 import { Wholesale } from "./components/Wholesale";
 import { Partners } from "./components/Partners";
-import { PartnerCTA } from "./components/PartnerCTA";
+import { Heritage } from "./components/Heritage";
 import { Footer } from "./components/Footer";
 
 export default function Home() {
@@ -15,13 +15,13 @@ export default function Home() {
       <Navigation />
       <main className="flex flex-col flex-1">
         <Hero />
-        <Heritage />
-        <Manifesto />
-        <Ingredients />
+        <BrandRibbon />
         <Products />
+        <Ingredients />
+        <RetailerReasons />
         <Wholesale />
         <Partners />
-        <PartnerCTA />
+        <Heritage />
       </main>
       <Footer />
     </>

@@ -1,110 +1,81 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
-import { Flourish, MexicoSeal, CornEar } from "./Ornaments";
+
+const NAV = [
+  { href: "#products", label: "Products" },
+  { href: "#story", label: "Our Story" },
+  { href: "#wholesale", label: "Wholesale" },
+  { href: "#where-to-buy", label: "Where to Buy" },
+];
 
 export function Footer() {
   return (
-    <footer className="relative bg-clay-dark text-paper overflow-hidden">
-      {/* warm sweep */}
+    <footer id="contact" className="relative bg-white border-t border-line-soft">
+      {/* Mexican flag accent — top 3px, same as nav */}
       <div
         aria-hidden
-        className="absolute -top-32 left-1/2 -translate-x-1/2 h-[26rem] w-[26rem] rounded-full"
+        className="absolute top-0 left-0 right-0 h-[3px]"
         style={{
-          background:
-            "radial-gradient(circle, rgba(214,178,122,0.20), transparent 65%)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-30 mix-blend-overlay"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 1px 1px, rgba(255,220,170,0.22) 0.6px, transparent 1.2px)",
-          backgroundSize: "24px 24px",
+          background: "linear-gradient(90deg, #1f5f3b 33.33%, #e5e7eb 33.33% 66.66%, #9b1c1c 66.66%)",
         }}
       />
 
-      {/* faint corn ear in margin */}
-      <div className="absolute -right-4 top-1/3 opacity-20 hidden lg:block">
-        <CornEar className="w-20 h-auto" tone="#d6b27a" />
-      </div>
+      <div className="relative mx-auto max-w-[88rem] px-6 lg:px-12 pt-12 pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
 
-      <div className="relative mx-auto max-w-[88rem] px-6 lg:px-12 pt-24 pb-12">
-        {/* Top ornament */}
-        <div className="flex justify-center mb-16">
-          <Flourish className="w-96 h-6 opacity-90" tone="#d6b27a" />
-        </div>
+          {/* Brand column */}
+          <div className="md:col-span-2">
+            <Logo />
+            <p className="mt-4 text-[0.88rem] font-semibold text-foreground">La Carreta Mexican Food</p>
+            <p className="text-[0.82rem] text-muted">Known locally as La Carreta Tortilleria</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-          <div className="md:col-span-5">
-            <Logo tone="light" />
-            <p className="mt-7 max-w-sm font-display text-[1.15rem] leading-relaxed text-gold-soft italic">
-              &ldquo;A horse-drawn carreta, a galvanized tub of fresh tortillas,
-              and original family recipes still made the way they were in
-              1939.&rdquo;
-            </p>
-            <div className="mt-7 flex items-center gap-3 text-[0.62rem] uppercase tracking-[0.4em] text-gold-soft">
-              <span className="inline-block h-px w-10 bg-gold-soft/70" />
-              Hecho en México · Crafted in California
-              <span className="inline-block h-px w-10 bg-gold-soft/70" />
-            </div>
-            <div className="mt-3 flex items-center gap-3 text-[0.6rem] uppercase tracking-[0.36em] text-gold-soft/85">
-              <span aria-hidden className="inline-block h-1.5 w-1.5 rotate-45 bg-gold-soft/70" />
-              Simple ingredients · No artificial preservatives
-              <span aria-hidden className="inline-block h-1.5 w-1.5 rotate-45 bg-gold-soft/70" />
-            </div>
-
-            <div className="mt-8 flex items-center gap-4">
-              <MexicoSeal className="w-20 h-20 opacity-90" tone="#d6b27a" />
-              <div>
-                <div className="font-display italic text-base text-paper">
-                  Familia Cervantes
-                </div>
-                <div className="text-[0.62rem] uppercase tracking-[0.36em] text-gold-soft mt-1">
-                  Tradición desde 1939
-                </div>
-              </div>
+            {/* Trust pills */}
+            <div className="mt-5 flex flex-wrap gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-green-200 bg-green-50 px-3 py-1.5 text-[0.62rem] uppercase tracking-[0.14em] font-semibold text-green-700">
+                <span className="h-1.5 w-1.5 rounded-full bg-green-600" />
+                Est. 1939
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-red-200 bg-red-50 px-3 py-1.5 text-[0.62rem] uppercase tracking-[0.14em] font-semibold text-red-700">
+                <span className="h-1.5 w-1.5 rounded-full bg-red-600" />
+                No Preservatives
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-line-soft bg-[#f9fafb] px-3 py-1.5 text-[0.62rem] uppercase tracking-[0.14em] font-semibold text-muted">
+                100% Natural
+              </span>
             </div>
           </div>
 
-          <div className="md:col-span-3">
-            <h4 className="eyebrow text-gold-soft">Explore</h4>
-            <ul className="mt-5 space-y-3 text-[0.98rem]">
-              {[
-                ["#heritage", "Herencia", "Heritage"],
-                ["#manifesto", "Nuestra promesa", "Our promise"],
-                ["#products", "Productos", "Products"],
-                ["#wholesale", "Mayoreo", "Wholesale"],
-                ["#partners", "La Familia", "Retail partners"],
-              ].map(([href, es, en]) => (
-                <li key={href}>
+          {/* Quick links */}
+          <div>
+            <h4 className="text-[0.68rem] uppercase tracking-[0.2em] font-bold text-green-700 mb-4">
+              Quick Links
+            </h4>
+            <ul className="space-y-2.5">
+              {NAV.map((l) => (
+                <li key={l.href}>
                   <Link
-                    href={href}
-                    className="group flex items-baseline gap-2 hover:text-gold-soft transition-colors"
+                    href={l.href}
+                    className="text-[0.9rem] text-muted hover:text-green-700 transition-colors"
                   >
-                    <span className="font-display italic">{es}</span>
-                    <span className="text-[0.58rem] uppercase tracking-[0.32em] text-gold-soft/70">
-                      {en}
-                    </span>
+                    {l.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="md:col-span-4">
-            <h4 className="eyebrow text-gold-soft">La Casa</h4>
-            <address className="not-italic mt-5 space-y-2 text-[0.98rem] text-paper/80 leading-relaxed">
-              <p>La Carreta Mexican Food</p>
-              <p className="font-display italic text-[0.85rem] text-gold-soft/85">
-                Traditionally known as La Carreta Tortilleria
-              </p>
-              <p className="pt-2">4218 Mission Boulevard</p>
-              <p>Montclair, California 91763</p>
-              <p className="pt-3">
+          {/* Contact */}
+          <div>
+            <h4 className="text-[0.68rem] uppercase tracking-[0.2em] font-bold text-red-700 mb-4">
+              Contact
+            </h4>
+            <address className="not-italic space-y-2 text-[0.9rem] text-muted leading-relaxed">
+              <p>4218 Mission Boulevard</p>
+              <p>Montclair, CA 91763</p>
+              <p className="pt-1">
                 <a
                   href="mailto:wholesale@lacarreta.com"
-                  className="text-paper hover:text-gold-soft transition-colors"
+                  className="hover:text-red-700 transition-colors font-medium"
                 >
                   wholesale@lacarreta.com
                 </a>
@@ -112,30 +83,30 @@ export function Footer() {
               <p>
                 <a
                   href="tel:+19095550178"
-                  className="text-paper hover:text-gold-soft transition-colors"
+                  className="hover:text-red-700 transition-colors"
                 >
                   +1 (909) 555-0178
                 </a>
               </p>
             </address>
+          </div>
 
-            <div className="mt-7 flex items-center gap-3 text-[0.62rem] uppercase tracking-[0.36em] text-gold-soft">
-              <span className="inline-block h-1.5 w-1.5 rotate-45 bg-gold-soft" />
-              Lunes a Sábado · Mon — Sat
-            </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="mt-10 pt-6 border-t border-line-soft flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <p className="text-[0.72rem] uppercase tracking-[0.14em] text-muted">
+            © {new Date().getFullYear()} La Carreta Mexican Food · All rights reserved
+          </p>
+          <div className="flex items-center gap-4 text-[0.72rem] uppercase tracking-[0.14em] text-muted">
+            <Link href="#" className="hover:text-foreground transition-colors">Privacy</Link>
+            <span aria-hidden className="text-line-soft">·</span>
+            <Link href="#" className="hover:text-foreground transition-colors">Terms</Link>
+            <span aria-hidden className="text-line-soft">·</span>
+            <Link href="#wholesale" className="hover:text-green-700 transition-colors font-semibold">Trade Inquiries</Link>
           </div>
         </div>
 
-        <div className="mt-20 pt-8 border-t border-gold-soft/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[0.62rem] uppercase tracking-[0.34em] text-gold-soft">
-          <p>© {new Date().getFullYear()} La Carreta Mexican Food · All rights reserved</p>
-          <p className="flex items-center gap-4">
-            <Link href="#" className="hover:text-paper transition-colors">Privacy</Link>
-            <span aria-hidden>·</span>
-            <Link href="#" className="hover:text-paper transition-colors">Terms</Link>
-            <span aria-hidden>·</span>
-            <Link href="#" className="hover:text-paper transition-colors">Trade Inquiries</Link>
-          </p>
-        </div>
       </div>
     </footer>
   );
