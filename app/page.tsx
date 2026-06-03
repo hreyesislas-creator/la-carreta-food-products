@@ -1,6 +1,7 @@
 import { Navigation } from "./components/Navigation";
 import { Hero } from "./components/Hero";
 import { BrandRibbon } from "./components/BrandRibbon";
+import { ProductionStory } from "./components/ProductionStory";
 import { Products } from "./components/Products";
 import { Ingredients } from "./components/Ingredients";
 import { RetailerReasons } from "./components/RetailerReasons";
@@ -16,6 +17,7 @@ export default function Home() {
       <main className="flex flex-col flex-1">
         <Hero />
         <BrandRibbon />
+        <ProductionStory />
         <Products />
         <Ingredients />
         <RetailerReasons />

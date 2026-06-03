@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e8f3ec"/>
+      <stop offset="100%" stop-color="#c8dfd0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="65%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.55)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="700" fill="url(#bg)"/>
+  <rect width="1600" height="700" fill="url(#glow)"/>
+
+  <!-- Brand name watermark -->
+  <text x="800" y="390" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="140" font-weight="900" fill="rgba(31,95,59,0.07)" letter-spacing="2">LA CARRETA</text>
+
+  <!-- Content block -->
+  <rect x="560" y="270" width="480" height="2" fill="rgba(31,95,59,0.4)"/>
+  <text x="800" y="310" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="15" letter-spacing="6" fill="rgba(20,70,40,0.7)">PRODUCT PHOTO · TODAY</text>
+  <text x="800" y="338" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="12" letter-spacing="3" fill="rgba(30,80,50,0.55)">Replace with: /public/comparison/today.jpg · 2400 × 1600 px</text>
+  <rect x="560" y="352" width="480" height="1" fill="rgba(31,95,59,0.3)"/>
+
+  <!-- Decorative elements suggesting modern brand -->
+  <circle cx="350" cy="350" r="80" fill="none" stroke="rgba(31,95,59,0.12)" stroke-width="1.5"/>
+  <circle cx="350" cy="350" r="60" fill="none" stroke="rgba(31,95,59,0.08)" stroke-width="1"/>
+  <circle cx="1250" cy="350" r="80" fill="none" stroke="rgba(31,95,59,0.12)" stroke-width="1.5"/>
+  <circle cx="1250" cy="350" r="60" fill="none" stroke="rgba(31,95,59,0.08)" stroke-width="1"/>
+
+  <!-- Subtle horizontal lines -->
+  <line x1="100" y1="180" x2="540" y2="180" stroke="rgba(31,95,59,0.08)" stroke-width="1"/>
+  <line x1="100" y1="520" x2="540" y2="520" stroke="rgba(31,95,59,0.08)" stroke-width="1"/>
+  <line x1="1060" y1="180" x2="1500" y2="180" stroke="rgba(31,95,59,0.08)" stroke-width="1"/>
+  <line x1="1060" y1="520" x2="1500" y2="520" stroke="rgba(31,95,59,0.08)" stroke-width="1"/>
+</svg>

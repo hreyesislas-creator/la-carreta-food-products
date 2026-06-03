@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#fef6e2"/>
+      <stop offset="100%" stop-color="#f5e3b8"/>
+    </radialGradient>
+    <radialGradient id="disk" cx="42%" cy="44%" r="52%">
+      <stop offset="0%" stop-color="#faedc0"/>
+      <stop offset="60%" stop-color="#f0d888"/>
+      <stop offset="100%" stop-color="#e8c860"/>
+    </radialGradient>
+    <radialGradient id="light" cx="38%" cy="38%" r="45%">
+      <stop offset="0%" stop-color="rgba(255,255,220,0.55)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="700" fill="url(#bg)"/>
+
+  <!-- Warm glow in background -->
+  <ellipse cx="800" cy="330" rx="500" ry="380" fill="rgba(255,230,140,0.2)"/>
+
+  <!-- Tortilla disk  warm, soft, fresh golden tone -->
+  <ellipse cx="800" cy="330" rx="290" ry="286" fill="url(#disk)" stroke="#d4b858" stroke-width="2"/>
+  <ellipse cx="800" cy="330" rx="272" ry="268" fill="url(#light)"/>
+
+  <!-- Subtle corn speckle texture (soft, natural) -->
+  <circle cx="750" cy="290" r="5" fill="rgba(200,150,40,0.3)"/>
+  <circle cx="830" cy="275" r="4" fill="rgba(200,150,40,0.25)"/>
+  <circle cx="780" cy="360" r="5" fill="rgba(200,150,40,0.28)"/>
+  <circle cx="858" cy="340" r="4" fill="rgba(200,150,40,0.25)"/>
+  <circle cx="720" cy="340" r="4" fill="rgba(200,150,40,0.22)"/>
+  <circle cx="810" cy="400" r="4" fill="rgba(200,150,40,0.2)"/>
+  <circle cx="870" cy="300" r="3" fill="rgba(200,150,40,0.22)"/>
+
+  <!-- Soft golden sheen arc -->
+  <path d="M570 270 Q680 190 800 210 Q920 190 1030 270" fill="none" stroke="rgba(255,230,130,0.5)" stroke-width="40"/>
+
+  <!-- Label -->
+  <text x="800" y="590" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="13" letter-spacing="4" fill="rgba(90,60,10,0.6)">LA CARRETA NATURAL TORTILLA PLACEHOLDER</text>
+  <text x="800" y="612" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="11" letter-spacing="2" fill="rgba(100,70,15,0.45)">Replace with: /public/comparison/tortilla-natural.jpg · 1600 × 1200 px</text>
+</svg>
