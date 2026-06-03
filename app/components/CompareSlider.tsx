@@ -10,10 +10,19 @@ export interface CompareSliderProps {
   afterSrc: string;
   afterAlt: string;
   afterLabel: string;
-  /** CSS aspect-ratio string, e.g. "16/7". Default: "16/9" */
+  /**
+   * CSS aspect-ratio string, e.g. "16/7". When provided the container sets
+   * its own height via the aspect-ratio style. When omitted, the container
+   * fills whatever height the parent gives it (use this when the parent
+   * already defines the height / aspect ratio via Tailwind classes).
+   */
   aspectRatio?: string;
   /** Starting divider position 0–100. Default: 50 */
   initialPosition?: number;
+  /**
+   * Extra classes merged onto the root div.
+   * NOTE: rounding is NOT applied by default — pass e.g. "rounded-2xl" here.
+   */
   className?: string;
 }
 
@@ -24,7 +33,7 @@ export function CompareSlider({
   afterSrc,
   afterAlt,
   afterLabel,
-  aspectRatio = "16/9",
+  aspectRatio,
   initialPosition = 50,
   className = "",
 }: CompareSliderProps) {
@@ -41,16 +50,14 @@ export function CompareSlider({
     setPos(clampPos(((clientX - left) / width) * 100));
   }, []);
 
-  /* ── Global drag tracking ── */
   useEffect(() => {
     if (!dragging) return;
     const onMouseMove = (e: MouseEvent) => calcPos(e.clientX);
     const onTouchMove = (e: TouchEvent) => {
-      e.preventDefault(); // prevent scroll while dragging
+      e.preventDefault();
       calcPos(e.touches[0].clientX);
     };
     const onEnd = () => setDragging(false);
-
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("mouseup", onEnd);
     window.addEventListener("touchmove", onTouchMove, { passive: false });
@@ -71,12 +78,15 @@ export function CompareSlider({
   return (
     <div
       ref={containerRef}
-      className={`relative overflow-hidden rounded-2xl select-none touch-none ${className}`}
-      style={{ aspectRatio, cursor: "col-resize" }}
+      className={`relative overflow-hidden select-none touch-none ${className}`}
+      style={{
+        cursor: "col-resize",
+        ...(aspectRatio ? { aspectRatio } : {}),
+      }}
       onMouseDown={(e) => { e.preventDefault(); startDrag(e.clientX); }}
       onTouchStart={(e) => startDrag(e.touches[0].clientX)}
     >
-      {/* ── "After" image — sits in background, always full-size ── */}
+      {/* "After" layer — full-size background */}
       <div className="absolute inset-0">
         <Image
           src={afterSrc}
@@ -89,7 +99,7 @@ export function CompareSlider({
         />
       </div>
 
-      {/* ── "Before" image — clipped to the left of the divider ── */}
+      {/* "Before" layer — clipped to the left of the divider */}
       <div
         className="absolute inset-0"
         style={{ clipPath: `inset(0 ${(100 - pos).toFixed(2)}% 0 0)` }}
@@ -105,7 +115,7 @@ export function CompareSlider({
         />
       </div>
 
-      {/* ── Divider line ── */}
+      {/* Divider line */}
       <div
         aria-hidden
         className="absolute top-0 bottom-0 w-[2px] bg-white/90 pointer-events-none"
@@ -116,7 +126,7 @@ export function CompareSlider({
         }}
       />
 
-      {/* ── Drag handle ── */}
+      {/* Drag handle */}
       <div
         role="slider"
         aria-label="Drag to compare before and after"
@@ -137,7 +147,6 @@ export function CompareSlider({
           if (e.key === "ArrowRight") setPos((p) => clampPos(p + 3));
         }}
       >
-        {/* Outward chevrons: < > */}
         <svg
           viewBox="0 0 24 24"
           className="w-5 h-5 text-green-700"
@@ -153,7 +162,7 @@ export function CompareSlider({
         </svg>
       </div>
 
-      {/* ── Labels ── */}
+      {/* Corner labels */}
       <div className="absolute bottom-4 left-4 z-10 pointer-events-none">
         <span className="inline-flex items-center rounded-md bg-black/60 backdrop-blur-sm px-3 py-1.5 text-[0.6rem] uppercase tracking-[0.2em] font-bold text-white leading-none">
           {beforeLabel}
