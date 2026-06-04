@@ -51,101 +51,16 @@ const BENEFITS = [
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   ProductionStory — single unified tortilla comparison section
+   ProductionStory — benefits strip + corn-mascot tortilla comparison
 ═══════════════════════════════════════════════════════════════════════════ */
 
 export function ProductionStory() {
   return (
     <section className="relative bg-white" aria-label="Una tortilla de maíz real">
-      <div className="mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-12 py-12 lg:py-16">
 
-        {/* ── Main row: left copy (~35%) + right slider (~65%) ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-[35fr_65fr] gap-10 lg:gap-14 items-center">
-
-          {/* ── LEFT: mascot + headline + copy ── */}
-          <motion.div
-            initial={{ opacity: 0, x: -14 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.85, ease }}
-            className="flex items-start gap-5 md:gap-6"
-          >
-            {/* Corn mascot */}
-            <div className="shrink-0">
-              <Image
-                src={IMG.mascot}
-                alt=""
-                aria-hidden
-                width={136}
-                height={195}
-                unoptimized
-                className="w-[84px] md:w-[112px] lg:w-[128px] h-auto drop-shadow-[0_10px_22px_rgba(31,95,59,0.2)]"
-              />
-            </div>
-
-            {/* Headline block */}
-            <div>
-              <p className="text-[0.65rem] uppercase tracking-[0.22em] font-bold text-muted/60 mb-2">
-                Lo que hace diferente a La Carreta
-              </p>
-              <h2 className="text-[1.6rem] md:text-[2rem] lg:text-[2.35rem] leading-[1.02] tracking-[-0.024em] font-black uppercase text-green-700">
-                Una Tortilla<br />de Maíz Real,
-              </h2>
-              <h2 className="text-[1.6rem] md:text-[2rem] lg:text-[2.35rem] leading-[1.02] tracking-[-0.024em] font-black uppercase text-red-700">
-                Se Ve Así.
-              </h2>
-              <p className="mt-3 text-[0.85rem] text-muted leading-relaxed max-w-[28ch]">
-                Maíz. Agua. Cal. Sin conservadores artificiales ni químicos para extender la vida de anaquel.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* ── RIGHT: single before/after comparison slider ── */}
-          <motion.div
-            initial={{ opacity: 0, x: 14 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.85, ease, delay: 0.08 }}
-          >
-            {/* Slider: wide but not tall — height capped 360 → 560px */}
-            <div className="relative overflow-hidden rounded-3xl border border-line-soft shadow-[0_20px_56px_-24px_rgba(0,0,0,0.2)] h-[340px] sm:h-[440px] lg:h-[540px]">
-              <CompareSlider
-                beforeSrc={IMG.tortillaBad}
-                beforeAlt="Tortilla hecha con conservadores artificiales — seca y quebradiza"
-                beforeLabel="Con Conservadores"
-                afterSrc={IMG.tortillaGood}
-                afterAlt="Tortilla La Carreta — suave, flexible y fresca"
-                afterLabel="La Carreta"
-                initialPosition={50}
-                className="w-full h-full"
-              />
-            </div>
-
-            {/* Captions under each side of the slider */}
-            <div className="mt-3 grid grid-cols-2 gap-3 md:gap-4">
-              <div>
-                <p className="text-[0.8rem] font-bold leading-snug text-red-700">
-                  Seca y quebradiza
-                </p>
-                <p className="mt-0.5 text-[0.73rem] text-muted leading-snug">
-                  Hecha con químicos y conservadores
-                </p>
-              </div>
-              <div>
-                <p className="text-[0.8rem] font-bold leading-snug text-green-700">
-                  Suave, flexible y fresca
-                </p>
-                <p className="mt-0.5 text-[0.73rem] text-muted leading-snug">
-                  Hecha con ingredientes 100% naturales
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-        </div>
-
-        {/* ── Benefits strip — compact, inside the same section ── */}
-        <div className="mt-10 lg:mt-12 rounded-2xl border border-line-soft bg-[#f9fafb]">
+      {/* ── Benefits strip — directly below the hero ── */}
+      <div className="mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-12 pt-8 lg:pt-10">
+        <div className="rounded-2xl border border-line-soft bg-[#f9fafb]">
           <div className="flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-line-soft">
             {BENEFITS.map((b, i) => (
               <motion.div
@@ -164,7 +79,101 @@ export function ProductionStory() {
             ))}
           </div>
         </div>
+      </div>
 
+      {/* ── Tortilla comparison: mascot + copy (left) | slider (right) ── */}
+      <div className="mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-12 py-14 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-[36fr_64fr] gap-12 lg:gap-16 items-center">
+
+          {/* ── LEFT: corn mascot + headline + copy (one unified block) ── */}
+          <motion.div
+            initial={{ opacity: 0, x: -14 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.85, ease }}
+            className="relative flex flex-col items-start"
+          >
+            {/* Soft green campaign glow behind the mascot + text */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -z-10 -left-12 -top-10 h-[380px] w-[380px] rounded-full"
+              style={{
+                background: "radial-gradient(closest-side, rgba(31,95,59,0.13), transparent 75%)",
+                filter: "blur(10px)",
+              }}
+            />
+
+            {/* Corn mascot — large, transparent, soft glow (no white box) */}
+            <Image
+              src={IMG.mascot}
+              alt=""
+              aria-hidden
+              width={208}
+              height={347}
+              unoptimized
+              className="w-[150px] sm:w-[176px] lg:w-[210px] h-auto object-contain drop-shadow-[0_20px_34px_rgba(31,95,59,0.30)]"
+            />
+
+            {/* Premium badge */}
+            <span className="mt-6 inline-flex items-center gap-2 rounded-full border border-green-200 bg-green-50 px-4 py-1.5 text-[0.6rem] sm:text-[0.64rem] uppercase tracking-[0.24em] font-bold text-green-700">
+              Lo que hace diferente a La Carreta
+            </span>
+
+            {/* Headline */}
+            <h2 className="mt-4 text-[1.9rem] sm:text-[2.25rem] lg:text-[2.65rem] leading-[0.98] tracking-[-0.028em] font-black uppercase text-balance">
+              <span className="block text-green-700">Una Tortilla de Maíz Real,</span>
+              <span className="block" style={{ color: "#D32F2F" }}>Se Ve Así.</span>
+            </h2>
+
+            {/* Copy */}
+            <p className="mt-5 text-[0.92rem] sm:text-[0.96rem] text-muted leading-[1.7] max-w-[34ch]">
+              Maíz. Agua. Cal. Sin conservadores artificiales ni químicos para
+              extender la vida de anaquel.
+            </p>
+          </motion.div>
+
+          {/* ── RIGHT: real before/after tortilla slider (medium height) ── */}
+          <motion.div
+            initial={{ opacity: 0, x: 14 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.85, ease, delay: 0.08 }}
+          >
+            <div className="relative overflow-hidden rounded-[1.5rem] lg:rounded-[1.75rem] ring-1 ring-black/[0.05] shadow-[0_34px_80px_-30px_rgba(0,0,0,0.34)] h-[320px] sm:h-[420px] lg:h-[500px]">
+              <CompareSlider
+                beforeSrc={IMG.tortillaBad}
+                beforeAlt=""
+                beforeLabel="Con Conservadores"
+                afterSrc={IMG.tortillaGood}
+                afterAlt=""
+                afterLabel="La Carreta"
+                initialPosition={50}
+                className="absolute inset-0 h-full w-full"
+              />
+            </div>
+
+            {/* Captions under each side of the slider */}
+            <div className="mt-5 grid grid-cols-2 gap-4 md:gap-6">
+              <div className="border-l-2 pl-3.5" style={{ borderColor: "#D32F2F" }}>
+                <p className="text-[0.84rem] font-bold leading-snug" style={{ color: "#D32F2F" }}>
+                  Seca y quebradiza
+                </p>
+                <p className="mt-1 text-[0.75rem] text-muted leading-relaxed">
+                  Hecha con químicos y conservadores
+                </p>
+              </div>
+              <div className="border-l-2 border-green-600 pl-3.5">
+                <p className="text-[0.84rem] font-bold leading-snug text-green-700">
+                  Suave, flexible y fresca
+                </p>
+                <p className="mt-1 text-[0.75rem] text-muted leading-relaxed">
+                  Hecha con ingredientes 100% naturales
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+        </div>
       </div>
     </section>
   );

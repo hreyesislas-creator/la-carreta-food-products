@@ -16,8 +16,8 @@ export default function Home() {
       <Navigation />
       <main className="flex flex-col flex-1">
         <Hero />
-        <BrandRibbon />
         <ProductionStory />
+        <BrandRibbon />
         <Products />
         <Ingredients />
         <RetailerReasons />

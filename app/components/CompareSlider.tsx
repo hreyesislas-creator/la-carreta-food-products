@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { motion } from "motion/react";
 import Image from "next/image";
 
 export interface CompareSliderProps {
@@ -19,6 +20,8 @@ export interface CompareSliderProps {
   aspectRatio?: string;
   /** Starting divider position 0–100. Default: 50 */
   initialPosition?: number;
+  /** Subtle infinite ken-burns zoom on both images (campaign/hero feel). */
+  zoom?: boolean;
   /**
    * Extra classes merged onto the root div.
    * NOTE: rounding is NOT applied by default — pass e.g. "rounded-2xl" here.
@@ -35,8 +38,18 @@ export function CompareSlider({
   afterLabel,
   aspectRatio,
   initialPosition = 50,
+  zoom = false,
   className = "",
 }: CompareSliderProps) {
+  const zoomAnim = zoom
+    ? { scale: [1, 1.08] }
+    : undefined;
+  const zoomTransition = {
+    duration: 16,
+    ease: "easeInOut" as const,
+    repeat: Infinity,
+    repeatType: "reverse" as const,
+  };
   const [pos, setPos] = useState(initialPosition);
   const [dragging, setDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -88,15 +101,21 @@ export function CompareSlider({
     >
       {/* "After" layer — full-size background */}
       <div className="absolute inset-0">
-        <Image
-          src={afterSrc}
-          alt={afterAlt}
-          fill
-          unoptimized
-          sizes="100vw"
-          style={{ objectFit: "cover", objectPosition: "center" }}
-          draggable={false}
-        />
+        <motion.div
+          className="absolute inset-0"
+          animate={zoomAnim}
+          transition={zoomTransition}
+        >
+          <Image
+            src={afterSrc}
+            alt={afterAlt}
+            fill
+            unoptimized
+            sizes="100vw"
+            style={{ objectFit: "cover", objectPosition: "center" }}
+            draggable={false}
+          />
+        </motion.div>
       </div>
 
       {/* "Before" layer — clipped to the left of the divider */}
@@ -104,29 +123,35 @@ export function CompareSlider({
         className="absolute inset-0"
         style={{ clipPath: `inset(0 ${(100 - pos).toFixed(2)}% 0 0)` }}
       >
-        <Image
-          src={beforeSrc}
-          alt={beforeAlt}
-          fill
-          unoptimized
-          sizes="100vw"
-          style={{ objectFit: "cover", objectPosition: "center" }}
-          draggable={false}
-        />
+        <motion.div
+          className="absolute inset-0"
+          animate={zoomAnim}
+          transition={zoomTransition}
+        >
+          <Image
+            src={beforeSrc}
+            alt={beforeAlt}
+            fill
+            unoptimized
+            sizes="100vw"
+            style={{ objectFit: "cover", objectPosition: "center" }}
+            draggable={false}
+          />
+        </motion.div>
       </div>
 
       {/* Divider line */}
       <div
         aria-hidden
-        className="absolute top-0 bottom-0 w-[2px] bg-white/90 pointer-events-none"
+        className="absolute top-0 bottom-0 w-[3px] bg-white pointer-events-none"
         style={{
           left: `${pos}%`,
           transform: "translateX(-50%)",
-          boxShadow: "0 0 14px rgba(0,0,0,0.28)",
+          boxShadow: "0 0 18px rgba(0,0,0,0.32)",
         }}
       />
 
-      {/* Drag handle */}
+      {/* Drag handle — premium pill with grip + double chevron */}
       <div
         role="slider"
         aria-label="Drag to compare before and after"
@@ -134,12 +159,12 @@ export function CompareSlider({
         aria-valuemin={2}
         aria-valuemax={98}
         tabIndex={0}
-        className="absolute z-20 flex items-center justify-center w-12 h-12 rounded-full bg-white border border-white/50 hover:scale-110 active:scale-95 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600"
+        className="group absolute z-20 flex items-center justify-center w-14 h-14 rounded-full bg-white ring-1 ring-black/5 hover:scale-110 active:scale-95 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600"
         style={{
           left: `${pos}%`,
           top: "50%",
           transform: "translate(-50%, -50%)",
-          boxShadow: "0 4px 20px rgba(0,0,0,0.26), 0 1px 4px rgba(0,0,0,0.14)",
+          boxShadow: "0 6px 26px rgba(0,0,0,0.30), 0 2px 6px rgba(0,0,0,0.16)",
           cursor: "col-resize",
         }}
         onKeyDown={(e) => {
@@ -149,10 +174,10 @@ export function CompareSlider({
       >
         <svg
           viewBox="0 0 24 24"
-          className="w-5 h-5 text-green-700"
+          className="w-6 h-6 text-green-700 transition-transform group-hover:scale-110"
           fill="none"
           stroke="currentColor"
-          strokeWidth="2.5"
+          strokeWidth="2.6"
           strokeLinecap="round"
           strokeLinejoin="round"
           aria-hidden

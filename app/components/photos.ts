@@ -1,12 +1,13 @@
 /* ─────────────────────────────────────────────────────────────────────────
  * Photography manifest for La Carreta Mexican Food
  *
- * STATUS: Using Unsplash placeholders. Real brand photography should
- * replace these as soon as it is available.
+ * STATUS: Product cards use LOCAL brand photography from /public/images/products
+ * where the file exists; remaining slots fall back to Unsplash until the
+ * local file is added. Browser paths must NOT include /public.
  *
- * SWAP INSTRUCTIONS:
- *   1. Drop your file into the path shown in each `localPath` comment.
- *   2. Replace the `src` value with the local path string, e.g. "/images/hero/la-carreta-hero.jpg"
+ * SWAP INSTRUCTIONS (for any slot still on Unsplash):
+ *   1. Drop your file into /public/images/products/<slug>.jpg
+ *   2. Replace the `src` value with the public path string, e.g. "/images/products/<slug>.jpg"
  *   3. Once all photos are local you can remove the `remotePatterns` entry
  *      for images.unsplash.com in next.config.ts.
  *
@@ -55,36 +56,37 @@ export const HERITAGE_COMAL: Photo = {
 
 /* ── Product photography ───────────────────────────────────────────────── */
 export const PRODUCT_PHOTOS: Record<string, Photo> = {
-  // localPath: /public/images/products/corn-tortillas.jpg  (1600 × 1200)
+  // LOCAL — /public/images/products/corn-tortillas.jpg
   corn: {
-    src: unsplash("1599232288126-7dbd2127db14", 1600),
+    src: "/images/products/corn-tortillas.jpg",
     alt: "Stacked corn tortillas — La Carreta Mexican Food",
     position: "center 50%",
   },
 
-  // localPath: /public/images/products/flour-tortillas.jpg  (1600 × 1200)
+  // LOCAL — /public/images/products/flour-tortillas.jpg
   flour: {
-    src: unsplash("1545505005-0a09f804dcf6", 1600),
+    src: "/images/products/flour-tortillas.jpg",
     alt: "Soft flour tortillas on a kitchen towel — La Carreta Mexican Food",
     position: "center 45%",
   },
 
-  // localPath: /public/images/products/tamales.jpg  (1600 × 1200)
+  // TODO: add /public/images/products/tamales.jpg, then set src to "/images/products/tamales.jpg"
+  // (file not present yet — kept on Unsplash to avoid a broken image)
   tamal: {
     src: unsplash("1548078835-cb7d27702c1f", 1600),
     alt: "Hand-wrapped tamales with corn husks — La Carreta Mexican Food",
     position: "center 50%",
   },
 
-  // localPath: /public/images/products/masa.jpg  (1600 × 1200)
+  // LOCAL — /public/images/products/masa.jpg
   masa: {
-    src: unsplash("1583898791652-5e8b960710bd", 1600),
+    src: "/images/products/masa.jpg",
     alt: "Fresh masa dough on a wooden board — La Carreta Mexican Food",
     position: "center 50%",
   },
 
-  // localPath: /public/images/products/spices.jpg  (1600 × 1200)
-  // Spices photo: dried chiles, clay bowls, wooden spoons on rustic surface
+  // TODO: add /public/images/products/spices.jpg, then set src to "/images/products/spices.jpg"
+  // (file not present yet — kept on Unsplash to avoid a broken image)
   spices: {
     src: unsplash("1638429347-6a5b1a0ec4a1", 1600),
     alt: "Traditional Mexican spices with dried chiles and clay bowls — La Carreta Mexican Food",
